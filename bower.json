@@ -1,0 +1,27 @@
+{
+  "name": "mat-label",
+  "license": "BSD-3-Clause",
+  "version": "0.8.0",
+  "description": "This component is used to display a material label.",
+  "authors": [
+    "Giuliano Rullo <g.rullo@expandjs.com>",
+    "Maurizio Stefàno <m.stefano@expandjs.com>",
+    "Robert Manolea <r.manolea@expandjs.com>"
+  ],
+  "main": [
+    "mat-label.html"
+  ],
+  "keywords": [
+    "web-components"
+  ],
+  "dependencies": {
+    "expandjs": "ExpandJS/expandjs",
+    "mat-ink": "ExpandJS/mat-ink",
+    "xp-label": "ExpandJS/xp-label",
+    "polymer": "Polymer/polymer#^0.5"
+  },
+  "devDependencies": {
+    "mat-demo": "ExpandJS/mat-demo",
+    "mat-text-field": "ExpandJS/mat-text-field"
+  }
+}

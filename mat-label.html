@@ -1,0 +1,97 @@
+<!--
+@license
+Copyright (c) 2015 The expand.js authors. All rights reserved.
+This code may only be used under the BSD style license found at https://expandjs.github.io/LICENSE.txt
+The complete set of authors may be found at https://expandjs.github.io/AUTHORS.txt
+The complete set of contributors may be found at https://expandjs.github.io/CONTRIBUTORS.txt
+-->
+
+<!--
+This component is used to display a material label.
+It extends the native html `label`.
+
+@component mat-label
+@description This component is used to display a material label.
+
+@dependency polymer Polymer/polymer#^0.5
+@dependency expandjs ExpandJS/expandjs
+@dependency mat-ink ExpandJS/mat-ink
+@dependency xp-label ExpandJS/xp-label
+
+@devDependency mat-demo ExpandJS/mat-demo
+@devDependency mat-text-field ExpandJS/mat-text-field
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../expandjs/expandjs.html">
+<link rel="import" href="../mat-ink/mat-ink.html">
+<link rel="import" href="../xp-label/xp-label.html">
+
+<polymer-element name="mat-label" constructor="MATLabelElement" attributes="disabled focused for">
+
+    <template>
+        <style>
+            :host {
+                cursor: default;
+                display: block;
+                margin-bottom: -8px;
+                overflow: visible;
+                padding-top: 8px;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                -webkit-user-select: none;
+                user-select: none;
+
+                /* CAPTION */
+                font-size: 12px;
+                font-weight: 400;
+                letter-spacing: 0.02em;
+                line-height: 16px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        </style>
+        <label is="xp-label" id="matLabelAdaptee" focused="{{focused}}" for="{{for}}">
+            <mat-ink id="matLabelWrapper" color="{{focused ? 'light-blue-700a' : ''}}" disabled="{{disabled}}" opacity="secondary">
+                <content id="content"></content>
+            </mat-ink>
+        </label>
+    </template>
+
+    <script>
+        XPComponent({
+
+            // PUBLISH
+            publish: {
+
+                /**
+                 * If set to true, the element is disabled.
+                 *
+                 * @attribute disabled
+                 * @type boolean
+                 * @default false
+                 */
+                disabled: {reflect: true, value: false},
+
+                /**
+                 * If set to true, the element is focused.
+                 *
+                 * @attribute focused
+                 * @type boolean
+                 * @default false
+                 */
+                focused: {reflect: true, value: false},
+
+                /**
+                 * The `id` of the input element.
+                 *
+                 * @attribute for
+                 * @type string
+                 * @default ""
+                 */
+                for: {reflect: true, value: ''}
+            }
+        });
+    </script>
+
+</polymer-element>
