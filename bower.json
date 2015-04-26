@@ -1,7 +1,7 @@
 {
   "name": "mat-label",
   "license": "BSD-3-Clause",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "This element is used to display a material label.",
   "homepage": "http://www.expandjs.com/elements/mat-label",
   "authors": [
