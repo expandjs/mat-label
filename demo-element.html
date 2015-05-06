@@ -6,21 +6,21 @@
 
     <template>
         <style>
-            .container {
+            :host .demo-container {
                 margin: auto;
                 max-width: 256px;
                 text-align: left;
             }
 
-            .container * {
+            :host .demo-container * {
                 display: block;
                 width: 100%;
             }
         </style>
         <mat-demo label="mat-label">
 
-            <div class="title">Default</div>
-            <div class="container">
+            <div class="demo-title">Default</div>
+            <div class="demo-container">
                 <mat-label for="username">Username</mat-label>
                 <mat-text-field id="username" format="lowerCase" deburr></mat-text-field>
                 <mat-label for="password">Password</mat-label>
