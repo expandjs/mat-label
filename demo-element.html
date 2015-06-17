@@ -1,0 +1,41 @@
+<link rel="import" href="../mat-demo/mat-demo.html">
+<link rel="import" href="../mat-text-field/mat-text-field.html">
+<link rel="import" href="mat-label.html">
+
+<dom-module id="mat-label-demo">
+
+    <template>
+        <style>
+            :host .demo-container {
+                margin: auto;
+                max-width: 256px;
+                text-align: left;
+            }
+
+            :host .demo-container * {
+                display: block;
+                width: 100%;
+            }
+        </style>
+        <mat-demo label="mat-label">
+
+            <div class="demo-title">Default</div>
+            <div class="demo-container">
+                <mat-label for="username">Username</mat-label>
+                <mat-text-field id="username" format="lowerCase" deburr></mat-text-field>
+                <mat-label for="password">Password</mat-label>
+                <mat-text-field id="password" type="password"></mat-text-field>
+            </div>
+
+        </mat-demo>
+    </template>
+
+    <script>
+        Polymer({
+
+            // ELEMENT
+            is: 'mat-label-demo'
+        });
+    </script>
+
+</dom-module>
