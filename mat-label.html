@@ -17,13 +17,13 @@ It extends the native html `label`.
 @homepage http://expandjs.com/elements/mat-label
 @demo http://expandjs.com/demo/mat-label
 
-@dependency polymer Polymer/polymer
-@dependency expandjs ExpandJS/expandjs
-@dependency mat-ink ExpandJS/mat-ink
-@dependency xp-label ExpandJS/xp-label
+@dependency polymer Polymer/polymer#^1.0.4
+@dependency expandjs ExpandJS/expandjs#0.9.1
+@dependency mat-ink ExpandJS/mat-ink#0.9.1
+@dependency xp-label ExpandJS/xp-label#0.9.1
 
-@devDependency mat-demo ExpandJS/mat-demo
-@devDependency mat-text-field ExpandJS/mat-text-field
+@devDependency mat-demo ExpandJS/mat-demo#0.9.1
+@devDependency mat-text-field ExpandJS/mat-text-field#0.9.1
 -->
 
 <link rel="import" href="../polymer/polymer.html">
@@ -49,7 +49,7 @@ It extends the native html `label`.
     </style>
 
     <template>
-        <label is="xp-label" id="matLabelAdaptee" focused="[[focused]]" for="[[for]]">
+        <label is="xp-label" id="matLabelAdaptee" focused="{{focused}}" for$="[[for]]">
             <mat-ink id="matLabelWrapper" color="[[_computeColor(focused)]]" disabled="[[disabled]]" opacity="secondary">
                 <content id="content"></content>
             </mat-ink>
@@ -86,8 +86,10 @@ It extends the native html `label`.
                  * @attribute focused
                  * @type boolean
                  * @default false
+                 * @notifies
                  */
                 focused: {
+                    notify: true,
                     reflectToAttribute: true,
                     type: Boolean,
                     value: false
