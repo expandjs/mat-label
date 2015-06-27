@@ -5,30 +5,27 @@
 <dom-module id="mat-label-demo">
 
     <style>
-        :host .demo-container {
-            margin: auto;
-            max-width: 256px;
-            text-align: left;
-        }
-
-        :host .demo-container * {
+        :host mat-label,
+        :host mat-text-field {
             display: block;
-            width: 100%;
         }
     </style>
 
     <template>
-        <mat-demo label="mat-label">
 
-            <div class="demo-title">Default</div>
-            <div class="demo-container">
+        <mat-demo label="Default">
+            <script type="text/html">
                 <mat-label for="username">Username</mat-label>
                 <mat-text-field id="username" format="lowerCase" deburr></mat-text-field>
                 <mat-label for="password">Password</mat-label>
                 <mat-text-field id="password" type="password"></mat-text-field>
-            </div>
-
+            </script>
+            <mat-label for="username">Username</mat-label>
+            <mat-text-field id="username" format="lowerCase" deburr></mat-text-field>
+            <mat-label for="password">Password</mat-label>
+            <mat-text-field id="password" type="password"></mat-text-field>
         </mat-demo>
+
     </template>
 
     <script>
