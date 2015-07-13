@@ -4,26 +4,19 @@
 
 <dom-module id="mat-label-demo">
 
-    <style>
-        :host mat-label,
-        :host mat-text-field {
-            display: block;
-        }
-    </style>
-
     <template>
 
         <mat-demo label="Default">
             <script type="text/html">
-                <mat-label for="username">Username</mat-label>
-                <mat-text-field id="username" format="lowerCase" deburr></mat-text-field>
+                <mat-label for="username">Email</mat-label>
+                <mat-text-field id="username" type="email" inline></mat-text-field>
                 <mat-label for="password">Password</mat-label>
                 <mat-text-field id="password" type="password"></mat-text-field>
             </script>
-            <mat-label for="username">Username</mat-label>
-            <mat-text-field id="username" format="lowerCase" deburr></mat-text-field>
+            <mat-label for="username">Email</mat-label>
+            <mat-text-field id="username" type="email" inline></mat-text-field>
             <mat-label for="password">Password</mat-label>
-            <mat-text-field id="password" type="password"></mat-text-field>
+            <mat-text-field id="password" type="password" inline></mat-text-field>
         </mat-demo>
 
     </template>
