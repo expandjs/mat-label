@@ -18,19 +18,22 @@ It extends the native html `label`.
 @demo http://expandjs.com/demo/mat-label
 
 @wraps xp-label http://expandjs.com/elements/xp-label
+@behavior xp-adapter-behavior http://expandjs.com/elements/xp-adapter-behavior
 
 @dependency polymer Polymer/polymer#^1.0.0
-@dependency expandjs ExpandJS/expandjs#0.9.3
-@dependency mat-ink ExpandJS/mat-ink#0.9.3
-@dependency xp-label ExpandJS/xp-label#0.9.3
+@dependency expandjs ExpandJS/expandjs#0.9.4
+@dependency mat-ink ExpandJS/mat-ink#0.9.4
+@dependency xp-adapter-behavior ExpandJS/xp-adapter-behavior#0.9.4
+@dependency xp-label ExpandJS/xp-label#0.9.4
 
-@devDependency mat-demo ExpandJS/mat-demo#0.9.3
-@devDependency mat-text-field ExpandJS/mat-text-field#0.9.3
+@devDependency mat-demo ExpandJS/mat-demo#0.9.4
+@devDependency mat-text-field ExpandJS/mat-text-field#0.9.4
 -->
 
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../expandjs/expandjs.html">
 <link rel="import" href="../mat-ink/mat-ink.html">
+<link rel="import" href="../xp-adapter-behavior/xp-adapter-behavior.html">
 <link rel="import" href="../xp-label/xp-label.html">
 
 <dom-module id="mat-label">
@@ -63,6 +66,11 @@ It extends the native html `label`.
 
             // ELEMENT
             is: 'mat-label',
+
+            // BEHAVIORS
+            behaviors: [
+                Polymer.XPAdapterBehavior
+            ],
 
             /*********************************************************************/
 
@@ -115,6 +123,13 @@ It extends the native html `label`.
             // COMPUTER
             _computeColor: function (focused) {
                 return focused ? 'light-blue-a700' : null;
+            },
+
+            /*********************************************************************/
+
+            // LISTENER
+            ready: function () {
+                this._adapt(this.$.matLabelAdaptee);
             }
         });
     </script>
