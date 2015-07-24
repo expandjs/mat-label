@@ -7,8 +7,25 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
 -->
 
 <!--
-This element is used to display a material label.
-It extends the native html `label`.
+An element used to display a floated [Material Design label](http://www.google.it/design/spec/components/text-fields.html#text-fields-floating-labels).
+
+It behaves the same way as the standard `<label>` tag.
+
+It works either by explicitly specifying the `id` of an input...
+
+```html
+<mat-label for="myInput">Context for the text field</mat-label>
+<mat-text-field id="myInput"></mat-text-field>
+```
+
+...or by wrapping the interested input.
+
+```html
+<mat-label>
+    <div>Context for the text field</div>
+    <mat-text-field></mat-text-field>
+</mat-label>
+```
 
 @element mat-label
 @description A custom element used to display a Material Design label
@@ -17,17 +34,17 @@ It extends the native html `label`.
 @homepage http://expandjs.com/elements/mat-label
 @demo http://expandjs.com/demo/mat-label
 
-@wraps xp-label http://expandjs.com/elements/xp-label
-@behavior xp-adapter-behavior http://expandjs.com/elements/xp-adapter-behavior
+@adapts xp-label /bower_components/xp-label/xp-label.html
+@behavior xp-adapter-behavior /bower_components/xp-adapter-behavior/xp-adapter-behavior.html
 
 @dependency polymer Polymer/polymer#^1.0.0
-@dependency expandjs ExpandJS/expandjs#0.9.4
-@dependency mat-ink ExpandJS/mat-ink#0.9.4
-@dependency xp-adapter-behavior ExpandJS/xp-adapter-behavior#0.9.4
-@dependency xp-label ExpandJS/xp-label#0.9.4
+@dependency expandjs ExpandJS/expandjs#0.9.5
+@dependency mat-ink ExpandJS/mat-ink#0.9.5
+@dependency xp-adapter-behavior ExpandJS/xp-adapter-behavior#0.9.5
+@dependency xp-label ExpandJS/xp-label#0.9.5
 
-@devDependency mat-demo ExpandJS/mat-demo#0.9.4
-@devDependency mat-text-field ExpandJS/mat-text-field#0.9.4
+@devDependency mat-demo ExpandJS/mat-demo#0.9.5
+@devDependency mat-text-field ExpandJS/mat-text-field#0.9.5
 -->
 
 <link rel="import" href="../polymer/polymer.html">
