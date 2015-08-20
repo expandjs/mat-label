@@ -2,6 +2,7 @@
   "name": "mat-label",
   "license": "BSD-3-Clause",
   "version": "0.9.6",
+  "main": "mat-label.html",
   "description": "A custom element used to display a Material Design label",
   "homepage": "http://expandjs.com/elements/mat-label",
   "authors": [
@@ -16,9 +17,6 @@
     "html5",
     "expandjs",
     "web-components"
-  ],
-  "main": [
-    "mat-label.html"
   ],
   "ignore": [
     "**/.*"
