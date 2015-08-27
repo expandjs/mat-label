@@ -56,27 +56,29 @@ It works either by explicitly specifying the `id` of an input...
 
 <dom-module id="mat-label">
 
-    <style>
-        :host {
-            @apply(--mat-font-caption);
-            cursor: default;
-            display: block;
-            margin-bottom: -8px;
-            overflow: visible;
-            padding-top: 8px;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-    </style>
-
     <template>
+
+        <style>
+            :host {
+                @apply(--mat-font-caption);
+                cursor: default;
+                display: block;
+                margin-bottom: -8px;
+                overflow: visible;
+                padding-top: 8px;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                -webkit-user-select: none;
+                user-select: none;
+            }
+        </style>
+
         <label is="xp-label" id="matLabelAdaptee" focused="{{focused}}" for$="[[for]]">
             <mat-ink id="matLabelWrapper" color="[[_computeColor(focused)]]" disabled="[[disabled]]" opacity="secondary">
                 <content id="content"></content>
             </mat-ink>
         </label>
+
     </template>
 
     <script>
