@@ -36,12 +36,10 @@ It works either by explicitly specifying the `id` of an input...
 @demo http://expandjs.com/demo/mat-label
 
 @adapts xp-label /bower_components/xp-label/xp-label.html
-@behavior xp-adapter-behavior /bower_components/xp-adapter-behavior/xp-adapter-behavior.html
 
 @dependency polymer Polymer/polymer#^1.1.0
 @dependency expandjs ExpandJS/expandjs#0.9.10
 @dependency mat-ink ExpandJS/mat-ink#0.9.10
-@dependency xp-adapter-behavior ExpandJS/xp-adapter-behavior#0.9.10
 @dependency xp-label ExpandJS/xp-label#0.9.10
 
 @devDependency mat-demo ExpandJS/mat-demo#0.9.10
@@ -51,7 +49,6 @@ It works either by explicitly specifying the `id` of an input...
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../expandjs/expandjs.html">
 <link rel="import" href="../mat-ink/mat-ink.html">
-<link rel="import" href="../xp-adapter-behavior/xp-adapter-behavior.html">
 <link rel="import" href="../xp-label/xp-label.html">
 
 <dom-module id="mat-label">
@@ -87,15 +84,25 @@ It works either by explicitly specifying the `id` of an input...
             // ELEMENT
             is: 'mat-label',
 
-            // BEHAVIORS
-            behaviors: [
-                Polymer.XPAdapterBehavior
-            ],
-
             /*********************************************************************/
 
             // PROPERTIES
             properties: {
+
+                /**
+                 * The adapted element.
+                 *
+                 * @attribute adaptee
+                 * @type Element
+                 * @notifies
+                 * @readonly
+                 */
+                adaptee: {
+                    notify: true,
+                    readOnly: true,
+                    type: Object,
+                    value: null
+                },
 
                 /**
                  * If set to true, the element is disabled.
@@ -149,7 +156,7 @@ It works either by explicitly specifying the `id` of an input...
 
             // LISTENER
             ready: function () {
-                this._adapt(this.$.matLabelAdaptee);
+                this._setAdaptee(this.$.matLabelAdaptee);
             }
         });
     </script>
