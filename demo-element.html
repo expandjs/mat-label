@@ -6,19 +6,26 @@
 
     <template>
 
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+
         <mat-demo name="mat-label" type="element" url="http://expandjs.com/elements/mat-label">
 
             <mat-demo-panel label="Default">
                 <script type="text/html">
-                    <mat-label for="username">Email</mat-label>
+                    <label is="mat-label" for="username">Email</label>
                     <mat-text-field id="username" type="email" inline></mat-text-field>
-                    <mat-label for="password">Password</mat-label>
+                    <label is="mat-label" for="password">Password</label>
                     <mat-text-field id="password" type="password" inline></mat-text-field>
                 </script>
-                <mat-label for="username">Email</mat-label>
+                <label is="mat-label" for="username">Email</label>
                 <mat-text-field id="username" type="email" inline></mat-text-field>
-                <mat-label for="password">Password</mat-label>
+                <label is="mat-label" for="password">Password</label>
                 <mat-text-field id="password" type="password" inline></mat-text-field>
+
             </mat-demo-panel>
 
         </mat-demo>

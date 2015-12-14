@@ -7,74 +7,77 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
 -->
 
 <!--
-An element used to display a floated [Material Design label](http://www.google.it/design/spec/components/text-fields.html#text-fields-floating-labels).
+A custom element used to display a [Material Design label](http://www.google.it/design/spec/components/text-fields.html#text-fields-floating-labels).
 
-It behaves the same way as the standard `<label>` tag.
+Extends a standard `<label>` tag.
 
 It works either by explicitly specifying the `id` of an input...
 
 ```html
-<mat-label for="myInput">Context for the text field</mat-label>
+<label is="mat-label" for="myInput">Context for the text field</label>
 <mat-text-field id="myInput"></mat-text-field>
 ```
 
 ...or by wrapping the interested input.
 
 ```html
-<mat-label>
+<label is="mat-label">
     <div>Context for the text field</div>
     <mat-text-field></mat-text-field>
-</mat-label>
+</label>
 ```
 
 @element mat-label
 @description A custom element used to display a Material Design label
-@keywords material design, material label, web app, html5, expandjs, web-components
+@keywords material design, expandjs, web app, custom elements, web-components
 @group accessibility
+@hot
+
 @homepage http://expandjs.com/elements/mat-label
 @repository https://github.com/ExpandJS/mat-label
 @demo http://expandjs.com/demo/mat-label
 
-@adapts xp-label /bower_components/xp-label/xp-label.html
+@extends label
+@behavior xp-label-behavior /bower_components/xp-label-behavior/xp-label-behavior.html
 
-@dependency polymer Polymer/polymer#^1.1.0
-@dependency expandjs ExpandJS/expandjs#0.9.11
-@dependency mat-ink ExpandJS/mat-ink#0.9.11
-@dependency xp-label ExpandJS/xp-label#0.9.11
+@dependency polymer Polymer/polymer#^1.2.0
+@dependency expandjs ExpandJS/expandjs#0.10.0
+@dependency mat-ink ExpandJS/mat-ink#0.10.0
+@dependency mat-typography ExpandJS/mat-typography#0.10.0
+@dependency xp-label-behavior ExpandJS/xp-label-behavior#0.10.0
 
-@devDependency mat-demo ExpandJS/mat-demo#0.9.11
-@devDependency mat-text-field ExpandJS/mat-text-field#0.9.11
+@devDependency mat-demo ExpandJS/mat-demo#0.10.0
+@devDependency mat-text-field ExpandJS/mat-text-field#0.10.0
 -->
 
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../expandjs/expandjs.html">
 <link rel="import" href="../mat-ink/mat-ink.html">
-<link rel="import" href="../xp-label/xp-label.html">
+<link rel="import" href="../mat-typography/mat-typography.html">
+<link rel="import" href="../xp-label-behavior/xp-label-behavior.html">
+<link rel="import" href="../xp-label-behavior/xp-label-styles.html">
 
 <dom-module id="mat-label">
 
-    <template>
+    <template strip-whitespace>
+
+        <style include="xp-label-styles"></style>
 
         <style>
             :host {
                 @apply(--mat-font-caption);
-                cursor: default;
                 display: block;
+                height: 16px;
                 margin-bottom: -8px;
-                overflow: visible;
-                padding-top: 8px;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                -webkit-user-select: none;
-                user-select: none;
+                padding-top: 16px;
+            }
+
+            :host([focused]) .wrapper {
+                color: var(--mat-focused-color, #0091EA);
             }
         </style>
 
-        <label is="xp-label" id="matLabelAdaptee" focused="{{focused}}" for$="[[for]]">
-            <mat-ink id="matLabelWrapper" color="[[_computeColor(focused)]]" disabled="[[disabled]]" opacity="secondary">
-                <content id="content"></content>
-            </mat-ink>
-        </label>
+        <mat-ink class="wrapper" disabled="[[disabled]]" opacity="secondary"><content></content></mat-ink>
 
     </template>
 
@@ -84,80 +87,13 @@ It works either by explicitly specifying the `id` of an input...
             // ELEMENT
             is: 'mat-label',
 
-            /*********************************************************************/
+            // EXTENDS
+            extends: 'label',
 
-            // PROPERTIES
-            properties: {
-
-                /**
-                 * The adapted element.
-                 *
-                 * @attribute adaptee
-                 * @type Element
-                 * @notifies
-                 * @readonly
-                 */
-                adaptee: {
-                    notify: true,
-                    readOnly: true,
-                    type: Object,
-                    value: null
-                },
-
-                /**
-                 * If set to true, the element is disabled.
-                 *
-                 * @attribute disabled
-                 * @type boolean
-                 * @default false
-                 */
-                disabled: {
-                    reflectToAttribute: true,
-                    type: Boolean,
-                    value: false
-                },
-
-                /**
-                 * If set to true, the element is focused.
-                 *
-                 * @attribute focused
-                 * @type boolean
-                 * @default false
-                 * @notifies
-                 */
-                focused: {
-                    notify: true,
-                    reflectToAttribute: true,
-                    type: Boolean,
-                    value: false
-                },
-
-                /**
-                 * The `id` of the input element.
-                 *
-                 * @attribute for
-                 * @type string
-                 */
-                for: {
-                    reflectToAttribute: true,
-                    type: String,
-                    value: null
-                }
-            },
-
-            /*********************************************************************/
-
-            // COMPUTER
-            _computeColor: function (focused) {
-                return focused ? 'light-blue-a700' : null;
-            },
-
-            /*********************************************************************/
-
-            // LISTENER
-            ready: function () {
-                this._setAdaptee(this.$.matLabelAdaptee);
-            }
+            // BEHAVIORS
+            behaviors: [
+                Polymer.XPLabelBehavior
+            ]
         });
     </script>
 
